@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vr Teleport Assessment</title>
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+
+    <script src="js/common.js"></script>
+
+    <style>
+        .row1 {
+            position: absolute;
+            z-index: 999999999;
+            width: 400px;
+            display: inline-flex;
+            margin: 10px 1px;
+        }
+
+        .boxborder {
+            color: white;
+            width: 200px;
+            background: #393939;
+            padding: 15px;
+            font-size: 21px;
+            font-family: sans-serif;
+            margin: 1px;
+            cursor: grab;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="row1">
+
+        <div class="boxborder interiorrbtn" style="background:#0aadae;">
+            View Interior
+        </div>
+
+        <div class="boxborder exteriorbtn">
+            View Exterior
+        </div>
+    </div>
+
+    <a-scene>
+
+        <a-assets>
+            <img id="front_img" src="images/front.JPG">
+            <img id="front_left_img" src="images/front_left_side.JPG">
+            <img id="front_right_side_img" src="images/front_right_side.JPG">
+            <img id="left_img" src="images/left.JPG">
+            <img id="right_img" src="images/right.JPG">
+            <img id="back_left_side_img" src="images/back_left_side.JPG">
+            <img id="back_right_side_img" src="images/back_right_side.JPG">
+            <img id="back_img" src="images/back.JPG">
+
+            <img id="info_icon" src="img/down-arrow.png">
+
+            <img id="front_open_img" src="images/front_open.JPG">
+            <img id="left_open_img" src="images/left_open.JPG">
+            <img id="right_open_img" src="images/right_open.JPG">
+            <img id="back_open_img" src="images/back_open.JPG">
+
+            <img id="front_interior_img" src="images/front_interior.JPG">
+            <img id="side_interior_img" src="images/side_interior.JPG">
+            <img id="back_interior_img" src="images/back_interior.JPG">
+            <img id="info_interior_icon" src="img/down-blue.png">
+        </a-assets>
+
+        <a-sky src="#front_img" rotation="0 -130 0" id="sky"></a-sky>
+        <!-- <a-text font="kelsonsans" value=" Welcome to Carzso" width="4" position="-2.5 0.25 -2.5" rotation="0 0 0">
+        </a-text> -->
+
+        <a-image class="clickable" src="images/c-c-yellow.webp" id="left_marker" data-view="front_left_side"
+            position="0 0.25 -2.8" scale="0.5 0.5 0.5" rotation="90 -90 0" click-marker>
+        </a-image>
+
+
+        <a-image class="clickable" src="images/c-c-yellow.webp" id="right_marker" data-view="front_right_side"
+            position="2.8 0.25 -1.2" scale="0.5 0.5 0.5" rotation="90 -90 0" click-marker>
+        </a-image>
+
+        <a-image class="clickable" src="#info_icon" id="info_marker" position="3.5 1 -4" scale="0.35 0.35 0.35"
+            click-marker data-view="front_open">
+        </a-image>
+
+
+        <a-image class="clickable" src="#info_interior_icon" id="interior_marker_1" position="-2.5 1 -4"
+            scale="0.6 0.6 0.6" click-marker data-view="side_interior" visible="false">
+        </a-image>
+
+        <a-image class="clickable" src="#info_interior_icon" id="interior_marker_2" position="-13.5 5 2" scale="2 2 2"
+            click-marker data-view="back_interior" visible="false" rotation="0 -20 0">
+        </a-image>
+
+
+
+        <a-entity movement-controls="fly: true" position="0 0 0" rotation="0 -30 0">
+            <a-entity camera position="0 1.6 0" look-controls></a-entity>
+            <a-entity cursor="rayOrigin:mouse"></a-entity>
+            <a-entity laser-controls="hand: right"></a-entity>
+        </a-entity>
+
+        <!-- <a-entity cursor="rayOrigin:mouse"></a-entity> -->
+
+
+        <!-- <a-entity oculus-go-controls></a-entity> -->
+
+        <!-- <a-entity id="hand" laser-controls raycaster="objects: .clickable"></a-entity> -->
+
+        <!-- <a-entity id="cameraRig" position="0 0 8" rotation="-6 -30 0">
+        <a-entity id="head" position="0 1.52 -120" camera look-controls="reverseMouseDrag: true"> 
+        </a-entity>
+        <a-camera position="100 0 0">
+            <a-cursor color="#4CC3D9" fuse="true" timeout="10"></a-cursor>
+        </a-camera> -->
+    </a-scene>
+
+    <!-- 
+    <a-scene>
+        <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9" click-marker=""></a-box>
+        <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E" click-marker></a-sphere>
+        <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D" click-marker></a-cylinder>
+        <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+        <a-sky id="sky" src="images/front.JPG"></a-sky>
+        <a-entity cursor="rayOrigin:mouse"></a-entity>
+    </a-scene> -->
+
+</body>
+
+</html>
